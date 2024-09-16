@@ -1,8 +1,21 @@
-import { Avatar, Grid, IconButton } from "@material-ui/core";
+import { Avatar, IconButton } from "@material-ui/core";
 import React from "react";
 import { LinkedIn, Instagram, GitHub } from "@material-ui/icons";
-
+import { useDispatch } from "react-redux";
+import { setUserLogout } from "../../store/authSlice";
+import { useSelector } from "react-redux";
+import { Link } from "react-router-dom";
 const Homeleft = () => {
+  // const loggedin = useSelector((state) => state.auth);
+  // const dispatch=useDispatch();
+
+
+
+  // console.log(loggedin.user)
+  // const handlesignout=()=>{
+  //   dispatch(setUserLogout());
+    
+  // }
   return (
     <section
     id="profile"
@@ -19,17 +32,19 @@ const Homeleft = () => {
             className="avatar"
             style={{ height: "200px", width: "200px" }}
             sizes="xxl"
-            src="https://flxt.tmsimg.com/assets/p18480237_b_v13_ac.jpg"
+            // src={loggedin.user.photoURL}
           />
         </div>
       </div>
 
       <span className="pt-5 font-poppins font-normal cursor-pointer text-[20px] text-white">
-        Lucifer
+        Sanjay
+        {/* {loggedin.user.displayname} */}
       </span>
 
-      <span className="pt-1 font-poppins font-normal text-[13px] text-white">
-        Software Developer @
+      <span className="pt-1 font-poppins font-normal text-[15px] text-white">
+        Coder
+        {/* {loggedin.user.jopprofile==null?"Coder @":loggedin.user.jopprofile} */}
       </span>
 
       <a
@@ -37,10 +52,13 @@ const Homeleft = () => {
         className="font-poppins font-normal text-[18px] text-white mb-6"
       >
         Virtualz
+        {/* {loggedin.user.company==null?"Dry Run":loggedin.user.company} */}
       </a>
-
+      <a  className="py-1 px-5 mb-6 bg-none border-2 border-white self-center cursor-pointer rounded font-poppins font-normal text-[12px] text-white"><Link to="/edit-profile">Edit Profile</Link></a>
+    
       <div className="flex mb-2 justify-items-center">
-        <span className="font-poppins font-normal text-[20px] text-white">
+      
+        <span className="font-poppins font-normal text-[25px] text-white">
           Stats
         </span>
       </div>
@@ -74,14 +92,7 @@ const Homeleft = () => {
             </td>
           </tr>
 
-          <tr className="flex justify-between mb-2">
-            <td className="font-poppins font-normal text-[16px] text-white">
-              Joined
-            </td>
-            <td className="font-poppins font-normal text-[16px] text-white">
-              06 June 2022
-            </td>
-          </tr>
+         
         </table>
       </div>
 
@@ -97,8 +108,9 @@ const Homeleft = () => {
           
           <tr className="flex justify-between mb-1">
             <td className="font-poppins font-normal text-[16px] text-white">
-              <IconButton>
-                <LinkedIn
+              
+              <IconButton >
+                <LinkedIn 
                   style={{ width: "30px", height: "30px", color: "white" }}
                 />
               </IconButton>
@@ -110,8 +122,8 @@ const Homeleft = () => {
           
           <tr className="flex justify-between mb-2">
             <td className="font-poppins font-normal text-[16px] text-white">
-              <IconButton>
-                <GitHub
+              <IconButton >
+                <GitHub 
                   style={{ width: "30px", height: "30px", color: "white" }}
                 />
               </IconButton>
@@ -123,8 +135,8 @@ const Homeleft = () => {
           
           <tr className="flex justify-between mb-2">
             <td className="font-poppins font-normal text-[16px] text-white">
-              <IconButton>
-                <Instagram
+              <IconButton >
+                <Instagram 
                   style={{ width: "30px", height: "30px", color: "white" }}
                 />
               </IconButton>
@@ -140,7 +152,7 @@ const Homeleft = () => {
         
         <a  className="py-3 px-8 mb-6 bg-gradient-to-r from-green-600 to-blue-500 hover:from-green-900 hover:to-green-700 self-center cursor-pointer rounded-lg font-poppins font-normal text-[16px] text-white">See All Submissions</a>
         
-        <a className="py-3 px-20 mb-6 bg-gradient-to-r from-green-600 to-blue-500 hover:from-red-800 hover:to-red-500 self-center cursor-pointer rounded-lg font-poppins font-normal text-[16px] text-white">Log Out</a>
+        <a className="py-3 px-20 mb-6 bg-gradient-to-r from-green-600 to-blue-500 hover:from-red-800 hover:to-red-500 self-center cursor-pointer rounded-lg font-poppins font-normal text-[16px] text-white" >Log Out</a>
       </div>
     </div>
   </section>
